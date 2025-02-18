@@ -1,1 +1,90 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointment Booking System</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Home Page -->
+  <div class="home-page">
+    <h1>Welcome to Our Booking System</h1>
+    <div class="services">
+      <button class="service-btn" data-service="Doctor Consultation">Book Doctor Consultation</button>
+      <button class="service-btn" data-service="Salon Booking">Book Salon Appointment</button>
+      <button class="service-btn" data-service="Car Service">Book Car Service</button>
+    </div>
+  </div>
+
+  <!-- Appointment Booking Form (Popup) -->
+  <div id="booking-form" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Book Appointment</h2>
+      <form id="appointment-form">
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" required>
+        <span class="error" id="name-error"></span>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="email-error"></span>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <span class="error" id="phone-error"></span>
+
+        <label for="service">Select Service:</label>
+        <select id="service" name="service" required>
+          <option value="Doctor Consultation">Doctor Consultation</option>
+          <option value="Salon Booking">Salon Booking</option>
+          <option value="Car Service">Car Service</option>
+        </select>
+
+        <label for="datetime">Preferred Date & Time:</label>
+        <input type="datetime-local" id="datetime" name="datetime" required>
+        <span class="error" id="datetime-error"></span>
+
+        <label for="requests">Special Requests:</label>
+        <textarea id="requests" name="requests"></textarea>
+
+        <label>
+          <input type="checkbox" id="terms" name="terms" required> I agree to the terms and conditions.
+        </label>
+        <span class="error" id="terms-error"></span>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Popup -->
+  <div id="confirmation-popup" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Appointment Confirmed!</h2>
+      <p id="confirmation-message"></p>
+    </div>
+  </div>
+
+  <!-- Booked Appointments List -->
+  <div class="appointments-list">
+    <h2>Your Appointments</h2>
+    <table id="appointments-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Service</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
